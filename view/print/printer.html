@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<?php
+//echo $_SERVER['HTTP_REFERER'];
+session_start();
+if(!strcmp($_SERVER['HTTP_REFERER'],"http://223.3.68.142/view/index.html")){
+	
+}else{
+	header("Location: ../../index.html");
+}
+?>
+<html lang="zh-cn">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" >
+	<link rel="stylesheet" href="../css/bootstrap.min.css">
+
+	<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+	<script src="../js/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../../codemirror/lib/codemirror.css">
+	<script src="../../codemirror/lib/codemirror.js"></script>
+	<script src="../../codemirror/mode/javascript/javascript.js"></script>
+	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+	<script src="../js/bootstrap.min.js"></script>
+	<script>
+		function inputCheck(){
+
+			var code = $("#txtcomment").val();
+			if(trim(code) == ""){  
+		        window.alert("打印不能为空");  
+		        form.name.select();//或者form.name.focus()  
+		        return;  
+    		}else{
+    			document.getElementById("CodeText").submit();
+    		}  
+		}
+
+		function trim(s) {  
+		  var count = s.length;  
+		  var st    = 0;       // start  
+		  var end   = count-1; // end  
+		  
+		  if (s == "") return s;  
+		  while (st < count) {  
+		    if (s.charAt(st) == " ")  
+		      st ++;  
+		    else  
+		      break;  
+		  }  
+		  while (end > st) {  
+		    if (s.charAt(end) == " ")  
+		      end --;  
+		    else  
+		      break;  
+		 }  
+		  return s.substring(st,end + 1);  
+		}  
+	</script>
+
+	<style>
+		.inputArea{
+			position: absolute;
+			left: 300px;
+		}
+	</style>
+</head>
+<body>
+	<div style="margin-left:25%;">
+		<h2 style="font-family:微软雅黑"> 你们好！请在下面粘贴代码：</h2>
+		<h3 style="font-family:微软雅黑">(建议打印的内容中不要有汉字，否则可能产生乱码)</h2>
+	</div>
+<form id="CodeText" name="CodeText" action="../../controller/remote_print.php" method = "post" >	
+<div class="inputArea">
+	<div>
+		<textarea cols="100" rows="30" id="txtcomment" name="txtcomment"></textarea>
+	</div>
+	<div style="margin-left:50%;margin-top:5%;">
+		<button type=button class="btn btn-success btn-large" style="font-family:微软雅黑;font-size:33px;width:295px;height:80px"onclick="inputCheck()">打印代码</button>
+	</div>
+<div>
+	<div style="margin-top:10%;margin-left:30%"><span style="font-family:宋体">Copyright &copy 2014 软件学院科学与技术协会 </span></div>
+
+</form>
+</body>
+</html> 

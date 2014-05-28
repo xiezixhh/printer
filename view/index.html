@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+
+	<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+	<script src="./js/jquery.min.js"></script>
+
+	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+	<script src="./js/bootstrap.min.js"></script>
+
+	<script src="./js/infoChecker.js"></script>
+<script>
+	function submitLogin(){
+		re=/[@=?!^*%#\(\)'"<>\/\\]/;
+		var id=document.getElementById("teamID").value;
+		if(!re.test(id)){
+
+			document.getElementById("login").submit();
+			
+		}else{
+			alert("输入含有非法字符");
+		}
+	}
+</script>
+</head>
+<body>
+<div class="container" style="height:600px;margin-top:20px">
+	<div class="row" style="">
+		<div class="span6" style="margin-left:25%">
+			<h1 style="font-family:微软雅黑;font-size:50px">程序设计竞赛远程打印系统</h1>
+		</div>
+
+			<form id="login" class="form-horizontal" action="../controller/login.php" method=post>
+				<div style="margin-left:30%;margin-top:15%">
+					<label class="control-label" style="font-size:33px;font-family:微软雅黑">队伍id </label>
+					<input style="width:300px;height:50px;font-size:30px" type="text" placeholder="请输入队伍id" id="teamID" name= "teamID">
+				</div>
+			</form>
+
+		<div class="span3" style="margin-left:39%;margin-top:5%;">	
+			<button type=button class="btn btn-success btn-large" style="font-family:微软雅黑;font-size:33px;width:295px;height:80px"onclick="submitLogin()">去打印</button>
+		</div>
+	</div>
+	
+
+	<div style="margin-top:35%;margin-left:38%"><span style="font-family:宋体">Copyright &copy 2014 软件学院科学与技术协会 </span></div>
+
+</div>
+</body>
+</html>
